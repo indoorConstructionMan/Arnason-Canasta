@@ -16,11 +16,12 @@ cards, cards_rect = resource_loader.load_images('load_cards.nsv', pygame.image)
 
 pos = 0
 flag = 0
+clock = pygame.time.Clock()
 
 while True:
 
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT or pygame.key.get_pressed()[27]:
             pygame.quit()
             sys.exit()
 
@@ -39,7 +40,11 @@ while True:
             cards_rect[pos].center = current_pos
 
     screen.fill(felt)
+    pygame.draw.rect(screen, pygame.Color(255,255,255,255), \
+                             pygame.Rect(200,200, 600, 300), 10)
+    
     for i in range(len(cards)):
         screen.blit(cards[i], cards_rect[i])
-    
+
     pygame.display.flip()
+    clock.tick(60)
