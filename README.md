@@ -1,2 +1,2 @@
 # Arnason-Canasta
-Card game implemented on pygame
+Arnason Hand and Foot Canasta implemented in python's SDL wrapper pygame.
