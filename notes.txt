@@ -1,0 +1,29 @@
+Card
++image
+  - front 
+  - back
+*image should be a surface and surface rect combo
+
++value -> i.e. ace, five....
++worth -> how much the card is worth in canasta (5, 10, 20 or 100 points)
++color -> red and black threes are very different for instance
+###############################################################################
+pile abstract class
++piles are formed from a set of Card (list)
++piles are configured on a screen a specific way
+Types of piles include -> hand, foot, discard pile, draw pile, canastas, etc
+################################################################################
+hand/foot (players cards)
+is composed of a certain number of cards -> hands are visible and the foot is only visible once all cards have been played by the hand
+###############################################################################
+discard pile contains the set of discards, can be picked up by the hand under specific requirements
+###############################################################################
+draw pile is face down and allows players to pick up two cards on their turn.
+draw pile replaces red threes that have been placed down
+################################################################################
+player
++name
++team
+2,3,4,6 player games
+That's all for now
+

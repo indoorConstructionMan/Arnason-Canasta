@@ -1,5 +1,7 @@
 import sys, pygame, math, os
 import resource_loader
+from Card import Card
+
 pygame.init()
 
 size = width, height = 1000, 800
@@ -12,12 +14,22 @@ display = pygame.display
 display.set_caption(game_title)
 screen = display.set_mode(size) 
 
-cards, cards_rect = resource_loader.load_images('load_cards.nsv', pygame.image)
+cards, cards_rect, names = resource_loader.load_images('load_cards.nsv', pygame.image)
 
 pos = 0
 flag = 0
 clock = pygame.time.Clock()
 
+
+c=[]
+for i in range(len(cards)):
+    c.append(Card(cards[i], cards_rect[i], names[i]))
+
+for ele in c:
+    ele.print_info()
+
+#x=Card(cards[0], cards_rect[0], names[0])
+#x.print_info()
 while True:
 
     for event in pygame.event.get():
