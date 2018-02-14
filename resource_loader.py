@@ -21,4 +21,4 @@ def load_images(name, pyimg):
             img = load_image(line.rstrip('\n'), pyimg)
             cards.append(img.convert_alpha())
             cards_rect.append(img.get_rect())
-    return cards, cards_rect, card_name
+    return [cards, cards_rect, card_name]

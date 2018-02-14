@@ -2,11 +2,13 @@ class Card:
     def __init__(self, image_face, image_back, name):
         self.image_face = image_face
         self.image_back = image_back
+        self.rect = image_back
         self.name = name
         self.value = self.get_value()
         self.worth = self.get_worth()
         self.suit = self.get_suit()
         self.color = self.get_color()
+        self.int_value = self.get_int_value()
 
 
     def get_value(self):
@@ -15,6 +17,14 @@ class Card:
 
     def get_suit(self):
         return self.name.rstrip('.png\n').split('-')[1]
+
+
+    def get_surface(self):
+        return self.image_face
+
+
+    def get_rectangle(self):
+        return self.rect
 
     
     def get_worth(self):
@@ -39,8 +49,27 @@ class Card:
         else: 
             return 'black'
 
+    def get_int_value(self):
+        return {
+            'ace':1,
+            'two':2,
+            'three':3,
+            'four':4,
+            'five':5,
+            'six':6,
+            'seven':7,
+            'eight':8,
+            'nine':9,
+            'ten':10,
+            'jack':11,
+            'queen':12,
+            'king':13,
+            'joker':14
+        }[self.get_value()]
+
 
     def print_info(self):
         print("Information for " + self.name + "\nVal: " + self.get_value() \
               + "\nSuit: " + self.get_suit() + "\nWorth: " + self.get_worth() \
-              + "\nColor: " + self.get_color() + "\n")
+              + "\nColor: " + self.get_color() + "\nInt Val: " \
+              + str(self.get_int_value()) + "\n")
