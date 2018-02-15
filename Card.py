@@ -1,14 +1,20 @@
 class Card:
-    def __init__(self, image_face, image_back, name):
+    def __init__(self, image_face, image_rect, name, image_back):
         self.image_face = image_face
-        self.image_back = image_back
-        self.rect = image_back
+        self.image_back = image_back[0]
+        self.rect = image_rect
         self.name = name
         self.value = self.get_value()
         self.worth = self.get_worth()
         self.suit = self.get_suit()
         self.color = self.get_color()
         self.int_value = self.get_int_value()
+
+
+    def flip_card_over(self):
+        tmp = self.image_face 
+        self.image_face = self.image_back
+        self.image_back = tmp
 
 
     def get_value(self):
@@ -49,6 +55,7 @@ class Card:
         else: 
             return 'black'
 
+
     def get_int_value(self):
         return {
             'ace':1,
@@ -64,7 +71,8 @@ class Card:
             'jack':11,
             'queen':12,
             'king':13,
-            'joker':14
+            'joker':14,
+            'card':-1
         }[self.get_value()]
 
 
