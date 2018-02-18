@@ -32,7 +32,7 @@ class Card:
     def get_rectangle(self):
         return self.rect
 
-    
+
     def get_worth(self):
 
         val = self.get_value()
