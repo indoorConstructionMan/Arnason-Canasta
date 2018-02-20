@@ -3,10 +3,10 @@ from random import *
 import resource_loader
 
 
-class Pile:
+class Pile(object):
     def __init__(self):
         self.pile = []
-    
+
     def generate_multiple_decks(self, path, pyimg, number):
         if number <= 1:
             return 0
@@ -25,8 +25,8 @@ class Pile:
                                       loaded_objects[1][i], \
                                       loaded_objects[2][i],
                                       loaded_objects[3]))
-            
-                
+
+
     def get_pile(self):
         return self.pile
 
@@ -50,7 +50,7 @@ class Pile:
             sum += int(card.get_worth())
         return sum
 
-    
+
     def move_card(self, card, w, h):
         card.get_rectangle().center = [w,h]
 
@@ -70,4 +70,3 @@ class Pile:
             if visible:
                 card.flip_card_over()
             card.get_rectangle().center = [w, h]
-

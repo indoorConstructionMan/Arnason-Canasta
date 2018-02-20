@@ -1,6 +1,5 @@
 from Pile import Pile
 import random
-import math
 
 
 class PlayerHand(Pile):
@@ -26,9 +25,9 @@ class PlayerHand(Pile):
         pile = deck.get_pile()
         length = len(pile)
         for i in range(15):
-            self.hand.append(pile.pop(math.floor(random.random() * length)))
+            self.hand.append(pile.pop(int(random.random() * length)))
             length -= 1
-            self.foot.append(pile.pop(math.floor(random.random() * length)))
+            self.foot.append(pile.pop(int(random.random() * length)))
             length -= 1
 
         for card in self.foot:
@@ -36,4 +35,3 @@ class PlayerHand(Pile):
 
         self.dealt = True
         self.pile = self.hand
-
